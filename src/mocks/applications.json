@@ -1,0 +1,4 @@
+[
+  { "id": 9001, "jobId": 101, "name": "Aarav Mehta", "email": "aarav@example.com", "status": "Under review" },
+  { "id": 9002, "jobId": 102, "name": "Isha R", "email": "isha@example.com", "status": "Interview" }
+]

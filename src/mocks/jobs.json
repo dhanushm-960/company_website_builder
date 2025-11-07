@@ -1,0 +1,5 @@
+[
+  { "id": 101, "title": "Frontend Developer (React)", "type": "Full-time", "location": "Bengaluru", "tags": ["React", "Tailwind"] },
+  { "id": 102, "title": "Backend Engineer (Django)", "type": "Full-time", "location": "Remote", "tags": ["Django", "PostgreSQL"] },
+  { "id": 103, "title": "AI Engineer (LLM)", "type": "Internship", "location": "Hybrid", "tags": ["NLP", "Python"] }
+]

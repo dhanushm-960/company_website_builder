@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Theme tokens (neon dark) ===== */
+:root {
+  --ring: 0 0 0 2px rgba(34,211,238,0.6);
+}
+
+@layer base {
+  html, body {
+    @apply bg-[#07070c] text-[#e8ecf3] antialiased;
+  }
+}
+
+/* ===== Utilities for “high-graphics” look ===== */
+@layer utilities {
+  /* animated gradient text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, #22d3ee, #8b5cf6, #f472b6, #22d3ee);
+    background-size: 200% 200%;
+    animation: gradx 8s ease infinite;
+  }
+  /* subtle moving radials */
+  .bg-neon-radials {
+    background:
+      radial-gradient(800px 300px at 20% 10%, rgba(34,211,238,.12), transparent 40%),
+      radial-gradient(600px 260px at 80% 20%, rgba(139,92,246,.12), transparent 40%),
+      radial-gradient(700px 260px at 50% 90%, rgba(244,114,182,.10), transparent 40%),
+      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02));
+  }
+  @keyframes gradx {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* ===== Hero hover FX (shine, aura, scanline, sparkles) ===== */
+  .shine {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, #ffffff 0%, #22d3ee 25%, #8b5cf6 50%, #f472b6 75%, #ffffff 100%);
+    background-size: 200% 100%;
+  }
+  .group:hover .shine {
+    animation: shine-move 1.25s linear forwards;
+  }
+  @keyframes shine-move {
+    from { background-position: -50% 0; }
+    to   { background-position: 150% 0; }
+  }
+
+  .hover-aurora { position: relative; }
+  .hover-aurora::after {
+    content: ""; position: absolute; inset: -2px; border-radius: 1.5rem;
+    background: conic-gradient(from 180deg at 50% 50%, #22d3ee, #8b5cf6, #f472b6, #22d3ee);
+    filter: blur(18px); opacity: 0; transition: opacity .35s ease; z-index: -1;
+  }
+  .group:hover .hover-aurora::after { opacity: .55; }
+
+  .floaty { transition: transform .4s ease; }
+  .group:hover .floaty { transform: translateY(-2px) scale(1.01); }
+
+  .scanline { position: relative; overflow: hidden; }
+  .scanline::before {
+    content: ""; position: absolute; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent);
+    top: 10%; opacity: 0;
+  }
+  .group:hover .scanline::before {
+    animation: scan 2.2s linear infinite; opacity: .6;
+  }
+  @keyframes scan {
+    0% { top: 10%; } 50% { top: 90%; } 100% { top: 10%; }
+  }
+
+  .sparkles { position: absolute; inset: 0; pointer-events: none; }
+  .spark {
+    position: absolute; width: 6px; height: 6px; border-radius: 9999px;
+    background: radial-gradient(circle, #22d3ee, transparent 60%);
+    opacity: 0; transform: translate(-50%, -50%) scale(.5);
+  }
+  .group:hover .spark { animation: spark 1.8s ease-out infinite; }
+  .spark.pink  { background: radial-gradient(circle, #f472b6, transparent 60%); }
+  .spark.violet{ background: radial-gradient(circle, #8b5cf6, transparent 60%); }
+  @keyframes spark {
+    0% { opacity: .9; transform: translate(-50%, -50%) scale(.6); }
+    70%{ opacity: .2; transform: translate(-50%, -120%) scale(1.1); }
+    100%{ opacity: 0; transform: translate(-50%, -160%) scale(1.2); }
+  }
+}
+
+/* ===== Reusable components (buttons/cards/etc.) ===== */
+@layer components {
+  .container-page { @apply max-w-7xl mx-auto px-4; }
+
+  .btn { @apply inline-flex items-center justify-center rounded-xl border px-4 py-2 text-sm font-medium transition; }
+  .btn-primary {
+    @apply border-transparent text-white shadow-[0_0_30px_rgba(34,211,238,.25)];
+    background: linear-gradient(135deg, #22d3ee 0%, #8b5cf6 50%, #f472b6 100%);
+    background-size: 200% 200%;
+    animation: gradx 6s ease infinite;
+  }
+  .btn-primary:hover { @apply opacity-95; }
+  .btn-outline { @apply border-white/15 text-white hover:bg-white/5; }
+
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm outline-none
+           focus:[box-shadow:var(--ring)] placeholder:text-white/50;
+  }
+  .textarea { @apply input; }
+
+  .card {
+    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5
+           shadow-[0_10px_30px_rgba(0,0,0,.45)] transition;
+  }
+  .card::before {
+    content: ""; position: absolute; inset: -2px;
+    background: conic-gradient(from 180deg at 50% 50%, #22d3ee, #8b5cf6, #f472b6, #22d3ee);
+    filter: blur(16px); opacity: 0; transition: opacity .35s ease; z-index: -1;
+  }
+  .card:hover::before { opacity: .55; }
+
+  .glass { @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl; }
+
+  .chip { @apply inline-block rounded-full bg-white/10 px-2.5 py-0.5 text-xs text-white/90; }
+
+  .section-title { @apply text-2xl md:text-3xl font-extrabold tracking-tight mb-4; }
+
+  .table { @apply w-full border border-white/10 rounded-xl overflow-hidden; }
+  .table thead th { @apply bg-white/5 text-white/80 text-xs uppercase tracking-wider px-3 py-2; }
+  .table tbody td { @apply border-t border-white/10 px-3 py-2 text-sm; }
+}
+
+/* ===== Header & nav polish ===== */
+.nav-link { @apply text-white/70 hover:text-white transition; }
+.nav-link-active { @apply text-white relative; }
+.nav-link-active::after {
+  content: ""; @apply absolute left-1/2 -translate-x-1/2 -bottom-2 h-0.5 w-6 bg-gradient-to-r from-[#22d3ee] to-[#8b5cf6] rounded-full;
+}

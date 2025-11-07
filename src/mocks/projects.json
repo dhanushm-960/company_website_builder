@@ -1,0 +1,7 @@
+[
+  { "id": 1, "title": "Sales Insights Dashboard", "summary": "Interactive KPIs for a retail client; reduced reporting time by 70%.", "tags": ["React", "Analytics"] },
+  { "id": 2, "title": "Recruitment Portal", "summary": "Role-based app with resume parsing and offer workflows.", "tags": ["Django", "PostgreSQL"] },
+  { "id": 3, "title": "Support Chatbot", "summary": "LLM-powered bot answering FAQs with retrieval.", "tags": ["LLM", "RAG"] },
+  { "id": 4, "title": "Document Summarizer", "summary": "Batch PDF summarization with exportable reports.", "tags": ["NLP"] },
+  { "id": 5, "title": "Invoice Automation", "summary": "Auto-extract line items; finance approval routing.", "tags": ["Automation"] }
+]

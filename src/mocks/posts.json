@@ -1,0 +1,5 @@
+[
+  { "id": 1, "title": "How We Use AI to Speed Up Development", "date": "2025-10-01", "excerpt": "From scaffolding UIs to writing tests, AI is our co-pilot.", "content": "We integrate AI in planning, coding, and QA. Pairing with engineers gives the best results.", "tags": ["AI", "Engineering"] },
+  { "id": 2, "title": "Designing Dashboards that Don’t Suck", "date": "2025-09-14", "excerpt": "Clarity beats complexity. Here are our dashboard rules.", "content": "Start with KPIs, keep contrast high, and show trends not just numbers.", "tags": ["UX", "Analytics"] },
+  { "id": 3, "title": "Choosing the Right Stack for Startups", "date": "2025-08-20", "excerpt": "Speed, hiring pool, and hosting simplicity matter most.", "content": "We like React + Django/Postgres for velocity and reliability.", "tags": ["Tech", "Startups"] }
+]

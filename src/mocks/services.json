@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "AI Strategy & Consulting", "description": "Identify high-ROI AI use cases and build delivery roadmaps.", "tags": ["AI", "Roadmap"] },
+  { "id": 2, "name": "Custom Web Apps", "description": "Full-stack apps with clean UX and scalable APIs.", "tags": ["React", "Django"] },
+  { "id": 3, "name": "Automation & RPA", "description": "Automate repetitive workflows and back-office tasks.", "tags": ["Automation"] },
+  { "id": 4, "name": "Data Platforms", "description": "ETL, warehousing, and analytics dashboards.", "tags": ["Data", "ETL"] },
+  { "id": 5, "name": "LLM Integrations", "description": "Chatbots, summarizers, and AI content tools.", "tags": ["LLM", "NLP"] }
+]
